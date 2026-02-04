@@ -43,7 +43,7 @@ func (s *IssueService) UpdateIssue(ctx context.Context, issue domain.Issue) erro
 	return s.repo.Update(ctx, issue)
 }
 
-func (s *IssueService) Delete(ctx context.Context, id int) error {
+func (s *IssueService) DeleteIssue(ctx context.Context, id int) error {
 	Issue, err := s.repo.FindByID(ctx, id)
 	if err != nil {
 		return err
@@ -56,7 +56,7 @@ func (s *IssueService) Delete(ctx context.Context, id int) error {
 	return s.repo.Delete(ctx, id)
 }
 
-func (s *IssueService) GetAllIssue(ctx context.Context) ([]domain.Issue, error) {
+func (s *IssueService) GetAllIssues(ctx context.Context) ([]domain.Issue, error) {
 	return s.repo.ListIssue(ctx)
 }
 
