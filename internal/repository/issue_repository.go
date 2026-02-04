@@ -24,10 +24,14 @@ func (r *IssueRepository) Save(ctx context.Context, issue domain.Issue) error {
 }
 
 func (r *IssueRepository) Update(ctx context.Context, issue domain.Issue) error {
-	_, err := r.db.ExecContext(ctx, "UPDATE issues SET title = ? description = ? priority = ? WHERE id = ?",
+	_, err := r.db.ExecContext(
+		ctx,
+		"UPDATE issues SET title = ?, description = ?, priority = ? WHERE id = ?",
 		issue.Title,
 		issue.Description,
-		issue.Priority)
+		issue.Priority,
+		issue.ID,
+	)
 
 	return err
 }
