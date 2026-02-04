@@ -10,7 +10,7 @@ type IssueRepository struct {
 	db *sql.DB
 }
 
-func NewUserRepository(db *sql.DB) *IssueRepository {
+func NewIssueRepository(db *sql.DB) *IssueRepository {
 	return &IssueRepository{db: db}
 }
 
